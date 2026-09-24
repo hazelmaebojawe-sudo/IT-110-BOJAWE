@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Practical Application Activity</title>
+</head>
+<body>
+
+    <h2 id="images-section">1. Images</h2>
+    
+    <img src="images/fih.jpe" alt="an image of a cat morphed into a fish" width="400">
+
+    <img src="images/meowl.jpe" alt="a cat morphed into the body of an owl">
+
+    <!-- Image 3 wrapped in figure and figcaption -->
+    <figure>
+        <img src="images/seaow.jpe" alt="a cat morphed into the body of a seal" width="400">
+        <figcaption>Figure 1: Seal Cat.</figcaption>
+    </figure>
+
+    <hr>
+
+    <!-- Section 2: Hyperlinks -->
+    <h2 id="links-section">2. Hyperlinks</h2>
+    <ul>
+        <!-- Anchor Link: Jumps to the DOM Section -->
+        <li><a href="#dom-section">Jump to DOM Section (Anchor Link)</a></li>
+        
+        <!-- Internal Link -->
+        <li><a href="#images-section">Go to Top Images Section (Internal Link)</a></li>
+        
+        <!-- External Link -->
+        <li><a href="https://developer.mozilla.org" target="_blank">MDN Web Docs (External Link)</a></li>
+        
+        <!-- Email Link -->
+        <li><a href="mailto:hazelbojawe@gmail.com">Contact Me via Email</a></li>
+    </ul>
+
+    <hr>
+
+    <!-- Section 3: Multimedia -->
+    <h2 id="media-section">3. Multimedia</h2>
+    
+    <h3>Audio Player</h3>
+    <audio controls>
+        <source src="media/mrrp.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <h3>Video Player</h3>
+    <video controls width="500">
+        <source src="media/boing.mp4" type="video/mp4">
+        Your browser does not support the video element.
+    </video>
+
+    <hr>
+
+    <!-- Section 4: Useful Tags -->
+    <h2 id="tags-section">4. Useful Tags</h2>
+
+    <!-- Using blockquote to highlight a quote from a notable source -->
+    <blockquote cite="https://www.w3.org">
+        "The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect."
+    </blockquote>
+
+    <!-- Using mark to highlight essential text within a sentence -->
+    <p>Please make sure to review the <mark>important deadlines</mark> before submitting your work.</p>
+
+    <!-- Using code to format inline code snippets clearly for readers -->
+    <p>You can use the <code>git status</code> command to check modified files.</p>
+
+    <hr>
+
+    <!-- Section 5: HTML DOM -->
+    <h2 id="dom-section">5. HTML DOM</h2>
+    <p>Inspect this page using Developer Tools to capture the DOM tree structure.</p>
+
+</body>
+<!-- 
+HTML DOM Parent-Child Relationship Description:
+The <body> element acts as the parent container for top-level structural
+     elements like the <h2> headings and <figure> elements.
+         Inside the <figure> element, which serves as a parent, there are two child elements: an <img> tag and a 
+            <figcaption> tag. Similarly, the <ul> element acts as a parent containing multiple <li> elements as its direct children.
+-->
+</html>
