@@ -1,0 +1,201 @@
+/* ==========================================
+   1. RESET & FUNDAMENTALS
+   ========================================== */
+
+/* Universal selector: reset margins/padding and set box-sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Part C: Ensures padding & border are included in element width */
+}
+
+/* Base page styles with a strawberry polkas and soft pastel palette */
+body {
+  font-family: 'Comic Sans MS', 'Chalkboard SE', 'Fredoka', cursive, sans-serif;
+  background-color: #fff2f5;
+  background-image: radial-gradient(#ffcad4 15%, transparent 16%);
+  background-size: 18px 18px;
+  color: #704c38; 
+  line-height: 1.6;
+  padding: 2.5rem 1rem;
+}
+
+/* ==========================================
+   2. LAYOUT & TYPOGRAPHY
+   ========================================== */
+
+/* Grouping Selector for section headings */
+h1, h2 {
+  color: #fb6f92; 
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+/* Centering header & footer text */
+header, footer {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Main Profile Card Window */
+.card {
+  width: 500px; /* Fixed width */
+  padding: 24px;
+  border: 4px solid #f7cad0; /* Soft pastel pink border */
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.95); /* Creamy white background with high opacity */
+  margin: 0 auto 2rem auto; /* Centered horizontally with bottom margin */
+  box-shadow: 0px 8px 16px rgba(251, 111, 146, 0.15); /* Soft glowing drop shadow */
+}
+
+/* BOX MODEL COMPUTATION COMMENT (Part C):
+   Since box-sizing is set to border-box, the total rendered width of .card is exactly 500px.
+   Calculation: Width (500px) already includes Content + Padding (24px left + 24px right) + Border (4px left + 4px right).
+*/
+
+/* ==========================================
+   3. COMPONENTS & SELECTORS
+   ========================================== */
+
+/* Descendant Selector: Paragraphs inside cards */
+.card p {
+  font-size: 1.05rem;
+  margin-bottom: 0.6rem;
+}
+
+/* Class Selector: Styling the introduction text */
+.intro {
+  font-weight: 600;
+  color: #e05780;
+}
+
+/* Pseudo-element: Strawberry accent on the first letter of intro */
+.intro::first-letter {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ff477e;
+}
+
+/* ID Selector: Highlights the About card with a matcha/leaf green border */
+#about {
+  border-color: #b5e2fa; 
+  border: 4px solid #94d2bd; 
+  position: relative; 
+}
+
+/* Pseudo-element with Absolute Positioning: Cute Badge on top right of #about */
+#about::after {
+  content: "🍓 featured 🍓";
+  position: absolute;
+  top: -14px;
+  right: 20px;
+  background-color: #ffb5a7; 
+  color: #ffffff;
+  padding: 3px 12px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Navigation links styled like pill tabs */
+nav a {
+  display: inline-block;
+  padding: 8px 18px;
+  margin: 0 6px;
+  background-color: #ffcad4;
+  color: #704c38;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+  border: 2px solid #ffb5a7;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Pseudo-class: Hover effect on nav links */
+nav a:hover {
+  background-color: #e8e8e4; 
+  color: #fb6f92;
+  transform: translateY(-2px);
+}
+
+/* Flexbox Layout for Skills List (Inspired by bottom pill buttons in image) */
+.skills-list {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+/* Child Selector: Style individual skill item tags */
+.skills-list > li {
+  background-color: #e8f5e9; 
+  border: 2px solid #a3b18a;  
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: #4a5759;
+}
+
+/* Overflow / Scroll Box */
+.scroll-box {
+  height: 130px;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #ffcad4 #fff2f5;
+}
+
+/* ==========================================
+   4. DISPLAY VS VISIBILITY
+   ========================================== */
+
+/* hides element completely and removes it from the layout flow (leaves no gap) */
+.hide-none {
+  display: none;
+}
+
+/* hides element visually but keeps its original dimensions/space in the document flow */
+.hide-visibility {
+  visibility: hidden;
+}
+
+/* ==========================================
+   5. CASCADE DEMONSTRATION
+   ========================================== */
+
+/* Rule 1 for footer */
+footer p {
+  color: gray;
+}
+
+/* Rule 2 for footer (Conflicting rule) */
+footer p {
+  color: #b5838d; 
+}
+/* CASCADE explanation:
+   Rule 2 wins over Rule 1 because both selectors have identical specificity (0,0,0,2),
+   so the rule defined later in the stylesheet takes precedence according to the cascade order.
+*/
+
+/* ==========================================
+   6. REFLECTIONNNN
+   ==========================================
+
+   1. Why did one of your two conflicting rules win in Part A?
+      Answer: Both rules target `footer p`, giving them identical specificity. When specificity 
+      is equal, CSS resolves the conflict using the cascade order—meaning the rule declared 
+      later in the stylesheet overrides the previous one.
+
+   2. What is the rendered width of one .card if box-sizing were content-box instead of border-box?
+      Answer: Under `content-box`, padding and borders are added on top of the fixed width.
+      Computation: 500px (width) + 24px (left padding) + 24px (right padding) + 4px (left border) 
+      + 4px (right border) = 556px total rendered width.
+
+   3. When would you choose visibility: hidden instead of display: none?
+      Answer: You would use `visibility: hidden` when you want an element to be invisible while 
+      preserving its exact layout space so surrounding elements don't move or shift. 
+      `display: none` completely removes the element from the document layout flow as if it not there.
+*/
